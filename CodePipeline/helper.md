@@ -111,3 +111,24 @@ Step 1:
 Step 2 (Create as many for each service):
 
 ![Step 1](assets/CodeDeploy-step2.png)
+
+
+# Create CodePipeline
+Step 1
+
+![Step 1](assets/CodePipeline-step1.png)
+
+Step 2
+
+![Step 2](assets/CodePipeline-step2.png)
+
+Step 3 (Make sure to skip build stage, we are not building anything when deploying ECS containers.)
+
+![Step 3](assets/CodePipeline-step3.png)
+
+Step 4 (Do not add ECR information at this point, we will have to modify the sources and deployment.)
+
+![Step 4](assets/CodePipeline-step4.png)
+
+Step 3 (Click on edit on the code pipeline, on the sources page, click edit, and then click add action, and input this from the wizard):
+![Step 5](assets/CodePipeline-step5.png)
