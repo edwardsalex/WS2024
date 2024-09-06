@@ -216,3 +216,5 @@ kubectl set serviceaccount \
  deployment eks-lab-deploy \
  iampolicy-sa -n <namespace-name>
 ```
+
+See: https://aws.github.io/aws-eks-best-practices/security/docs/detective/ for more information.
