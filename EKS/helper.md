@@ -1,3 +1,10 @@
+## Links:
+[https://aws.github.io/aws-eks-best-practices/](https://aws.github.io/aws-eks-best-practices/)
+
+[https://www.eksworkshop.com/](https://www.eksworkshop.com/)
+
+# Create EKS Cluster
+
 Set default region:
 ```
 TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"`
