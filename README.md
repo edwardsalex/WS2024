@@ -7,3 +7,5 @@ GLHF! You'll be alright - Alex 2024-09-05
 [CodePipeline](CodePipeline/helper.md)
 
 [rewritepathswithpython.py](Lambda@Edge/rewritepathswithpython.py)
+
+[sqs-chaos-checker.yaml](sqs-chaos-checker.yaml)
