@@ -1,0 +1,75 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: CloudFormation template to track changes in EC2, Security Groups, NACLs, IGWs, and other network resources using EventBridge and SQS.
+
+Resources:
+  # Create the SQS Queue
+  NetworkChangeQueue:
+    Type: "AWS::SQS::Queue"
+    Properties:
+      QueueName: "NetworkChangeQueue"
+  
+  # Create EventBridge Rule to capture API changes for network resources
+  NetworkChangeEventRule:
+    Type: "AWS::Events::Rule"
+    Properties: 
+      Name: "TrackNetworkChanges"
+      Description: "Track changes in EC2, Security Groups, NACLs, IGWs, and VPCs"
+      EventPattern:
+        source:
+          - "aws.ec2"
+        detail-type:
+          - "AWS API Call via CloudTrail"
+        detail:
+          eventSource:
+            - "ec2.amazonaws.com"
+          eventName:
+            - "AuthorizeSecurityGroupIngress"
+            - "AuthorizeSecurityGroupEgress"
+            - "RevokeSecurityGroupIngress"
+            - "RevokeSecurityGroupEgress"
+            - "CreateSecurityGroup"
+            - "DeleteSecurityGroup"
+            - "CreateVpc"
+            - "DeleteVpc"
+            - "CreateSubnet"
+            - "DeleteSubnet"
+            - "CreateInternetGateway"
+            - "DeleteInternetGateway"
+            - "AttachInternetGateway"
+            - "DetachInternetGateway"
+            - "CreateNetworkAcl"
+            - "DeleteNetworkAcl"
+            - "ReplaceNetworkAclEntry"
+            - "DeleteNetworkAclEntry"
+            - "CreateRoute"
+            - "DeleteRoute"
+            - "RunInstances"
+            - "TerminateInstances"
+      State: "ENABLED"
+      Targets:
+        - Arn: !GetAtt NetworkChangeQueue.Arn
+          Id: "SQSTarget"
+
+  # Grant EventBridge permission to send messages to the SQS queue
+  SQSPolicy:
+    Type: "AWS::SQS::QueuePolicy"
+    Properties:
+      Queues:
+        - !Ref NetworkChangeQueue
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service: "events.amazonaws.com"
+            Action: "sqs:SendMessage"
+            Resource: !GetAtt NetworkChangeQueue.Arn
+
+Outputs:
+  QueueUrl:
+    Description: "URL of the SQS Queue that receives network change events"
+    Value: !Ref NetworkChangeQueue
+
+  QueueArn:
+    Description: "ARN of the SQS Queue"
+    Value: !GetAtt NetworkChangeQueue.Arn
