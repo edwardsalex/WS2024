@@ -16,6 +16,13 @@
 - S3
     - Versioning (ENSURE THAT THIS IS DONE),
     - Lifecycles (Glacier, One-Zone, Non used, etc.)
+- API Gateway
+    - Implement X-Ray Tracing
+    - Tag the APIs
+- CD/CI
+    - Setup CodePipeline, ensure you get all of the points available.
+- Logging
+    - Ensure that logging is available for everything that makes sense, (Flow logs, CloudWatch, etc.)
 #
 
 And as always:
