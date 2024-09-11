@@ -1,7 +1,5 @@
 # WS2024
 
-GLHF! You'll be alright - Alex 2024-09-05
-
 [EKS](EKS/helper.md)
 
 [CodePipeline](CodePipeline/helper.md)
@@ -10,6 +8,13 @@ GLHF! You'll be alright - Alex 2024-09-05
 
 [sqs-chaos-checker.yaml](build-sqs.yaml)
 
+
+#
+## Aftermath, Day 1
+- VPC
+    - [VPC Peering](VPC/peering.md)
+
+#
 
 
 REMEMBER!!!!!!!!
