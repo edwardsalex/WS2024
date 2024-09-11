@@ -8,16 +8,17 @@
 
 [sqs-chaos-checker.yaml](build-sqs.yaml)
 
+[Bedrock](AI-ML/bedrock.md)
 
-#
 ## Aftermath, Day 1
 - VPC
     - [VPC Peering](VPC/peering.md)
-
+- S3
+    - Versioning (ENSURE THAT THIS IS DONE),
+    - Lifecycles (Glacier, One-Zone, Non used, etc.)
 #
 
-
-REMEMBER!!!!!!!!
+And as always:
 - CloudFront deployment for caching
 - S3 bucket versioning for EVERYTHING
 - S3 bucket encryption enabled
