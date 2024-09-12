@@ -10,6 +10,8 @@
 
 [Bedrock](AI-ML/bedrock.md)
 
+[Lambda](lambda.md)
+
 ## Aftermath, Day 1
 - VPC
     - [VPC Peering](VPC/peering.md)
