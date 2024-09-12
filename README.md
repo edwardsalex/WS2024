@@ -13,6 +13,7 @@
 ## Aftermath, Day 1
 - VPC
     - [VPC Peering](VPC/peering.md)
+    - [VPC Best Practices (VPC/bestpractices.md)
 - S3
     - Versioning (ENSURE THAT THIS IS DONE),
     - Lifecycles (Glacier, One-Zone, Non used, etc.)
